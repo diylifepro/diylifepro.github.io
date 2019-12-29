@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://diylifepro.github.io</id>
     <title>diylife</title>
-    <updated>2019-12-29T19:14:54.872Z</updated>
+    <updated>2019-12-29T19:16:43.422Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://diylifepro.github.io"/>
     <link rel="self" href="https://diylifepro.github.io/atom.xml"/>
@@ -11,4 +11,15 @@
     <logo>https://diylifepro.github.io/images/avatar.png</logo>
     <icon>https://diylifepro.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, diylife</rights>
+    <entry>
+        <title type="html"><![CDATA[Hello World]]></title>
+        <id>https://diylifepro.github.io/post/hello-world</id>
+        <link href="https://diylifepro.github.io/post/hello-world">
+        </link>
+        <updated>2019-12-29T13:37:21.000Z</updated>
+        <content type="html"><![CDATA[<pre><code>public static void main(String arg[]){
+    System.out.println(&quot;Hello World!&quot;);
+}</code></pre>
+]]></content>
+    </entry>
 </feed>
