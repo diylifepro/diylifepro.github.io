@@ -3,9 +3,9 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>diylife</title>
-<meta name="description" content="
+<meta name="description" content="<img src="https://v2.jinrishici.com/one.svg?font-size=18&spacing=2&color=black">
 " />
-<link rel="shortcut icon" href="https://diylifepro.github.io/favicon.ico?v=1577638387698">
+<link rel="shortcut icon" href="https://diylifepro.github.io/favicon.ico?v=1577646819598">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.remixicon.com/releases/v1.3.1/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -25,89 +25,16 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="remixicon-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://diylifepro.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://diylifepro.github.io/images/avatar.png?v=1577638387698" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://diylifepro.github.io/images/avatar.png?v=1577646819598" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">diylife</h1>
         <link
   href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css"
   rel="stylesheet"
 />
-<meta http-equiv="Access-Control-Allow-Origin" content="*">
 <div id="aplayer" class="animated fadeInLeft mx-4" style="animation-delay: 0.6s"></div>
 <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 <script>
-
-
-
-var xhr = new XMLHttpRequest();
-    xhr.onload = function() {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-				json = (xhr.responseText);           	
-				//console.log(json);
-
-
-
-				let hehe=xhr.responseText;
-
-				//location
-				let split1=hehe.split("<td>地理位置</td>");
-						//console.log(split1);
-				let split2=split1[3].split("px;\">");
-						//console.log(split2);						
-				let split3=split2[1].split("<span style");
-						//console.log(split3);
-				let detailLocation=split3[0];
-						console.log(detailLocation);
-				//ip
-				let splitIp1=hehe.split("<input type=\"text\" name=\"ip\" value=\"");
-						//console.log(splitIp1);
-
-				let splitIp2=splitIp1[1].split("\"");
-						//console.log(splitIp2);					
-				ip=splitIp2[0];
-						console.log(ip);
-				//运营商
-				let splitRun1=hehe.split("<td>运营商</td>");
-						//console.log(splitRun1);
-				let splitRun2=splitRun1[1].split("px;\">");
-						//console.log(splitRun2);
-				let splitRun3=splitRun2[1].split("</span>");
-						//console.log(splitRun3);
-				run=splitRun3[0];
-						console.log(run);
-				//经纬度
-				let splitRange1=hehe.split("<td>地区中心经纬度</td>");
-						//console.log(splitRange1);
-				let splitRange2=splitRange1[1].split("px;\">");
-						//console.log(splitRange2);
-				let splitRange3=splitRange2[1].split("</span>");
-						//console.log(splitRange3);
-				range=splitRange3[0];
-						console.log(range);
-				document.write("My IP address is: ",ip);
-            } else {
-                console.error(xhr.statusText);
-            }
-        }
-    };
-    xhr.open("GET", 'https://www.ipip.net/ip.html');
-    xhr.send(null);
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function loadData(url, callback) {
@@ -208,7 +135,7 @@ ap.on('noticehide', function () {
       
         <div class="animated fadeInLeft" style="animation-delay: 0.4s">
           <p class="my-4 text-gray-600 font-light hidden lg:block">
-            
+            <img src="https://v2.jinrishici.com/one.svg?font-size=18&spacing=2&color=black">
 
           </p>
           <div class="animated fadeInLeft social-container hidden lg:block" style="animation-delay: 0.6s">
@@ -270,67 +197,16 @@ ap.on('noticehide', function () {
     
   </div>
   <div class="site-footer">
-    <div class="py-4 text-gray-700"><meta http-equiv="Access-Control-Allow-Origin" content="*">
-<script>
-var xhr = new XMLHttpRequest();
-    xhr.onload = function() {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-				json = (xhr.responseText);           	
-				//console.log(json);
-
-
-
-				let hehe=xhr.responseText;
-
-				//location
-				let split1=hehe.split("<td>地理位置</td>");
-						//console.log(split1);
-				let split2=split1[3].split("px;\">");
-						//console.log(split2);						
-				let split3=split2[1].split("<span style");
-						//console.log(split3);
-				let detailLocation=split3[0];
-						console.log(detailLocation);
-				//ip
-				let splitIp1=hehe.split("<input type=\"text\" name=\"ip\" value=\"");
-						//console.log(splitIp1);
-
-				let splitIp2=splitIp1[1].split("\"");
-						//console.log(splitIp2);					
-				ip=splitIp2[0];
-						console.log(ip);
-				//运营商
-				let splitRun1=hehe.split("<td>运营商</td>");
-						//console.log(splitRun1);
-				let splitRun2=splitRun1[1].split("px;\">");
-						//console.log(splitRun2);
-				let splitRun3=splitRun2[1].split("</span>");
-						//console.log(splitRun3);
-				run=splitRun3[0];
-						console.log(run);
-				//经纬度
-				let splitRange1=hehe.split("<td>地区中心经纬度</td>");
-						//console.log(splitRange1);
-				let splitRange2=splitRange1[1].split("px;\">");
-						//console.log(splitRange2);
-				let splitRange3=splitRange2[1].split("</span>");
-						//console.log(splitRange3);
-				range=splitRange3[0];
-						console.log(range);
-				document.write("My IP address is: ",ip);
-            } else {
-                console.error(xhr.statusText);
-            }
-        }
-    };
-    xhr.open("GET", 'https://www.ipip.net/ip.html');
-    xhr.send(null);
-
-
+    <div class="py-4 text-gray-700"><script type="application/javascript">
+function getgeoip(json){
+    document.write("地区: ", json.region, "<br />");
+    document.write("经度: ", json.latitude, "°", "<br />");
+    document.write("纬度: ", json.longitude, "°", "<br />");
+	document.write("IP: ", json.ip, "<br />");
+	document.write("详细地址: ", json.organization);
+}
 </script>
-
- </div>
+<script type="application/javascript" src="https://api.ip.sb/geoip?callback=getgeoip"></script></div>
     <a class="rss" href="https://diylifepro.github.io/atom.xml" target="_blank">RSS</a>
   </div>
 </div>
@@ -344,21 +220,6 @@ var xhr = new XMLHttpRequest();
         
 
         <div class="archives-container">
-          
-            <h2 class="text-gray-600 py-4 animated fadeIn">
-              <i class="remixicon-map-pin-time-line"></i>
-              2019
-            </h2>
-            
-              
-                <a href="https://diylifepro.github.io/post/hello-world" class="post">
-                  <h2 class="inline-block font-bold text-lg post-title animated fadeIn">
-                    Hello World
-                  </h2>
-                </a>
-                <div class="text-sm font-light mt-3 mb-6 text-gray-400 animated fadeInDown" style="animation-delay: 0.4s">2019-12-29</div>
-              
-            
           
         </div>
 
