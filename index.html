@@ -3,160 +3,320 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Gridea</title>
-<meta name="description" content="温故而知新" />
-<link rel="shortcut icon" href="https://diylifepro.github.io/favicon.ico?v=1577558562873">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<meta name="description" content="" />
+<link rel="shortcut icon" href="https://diylifepro.github.io/favicon.ico?v=1577626390403">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<link rel="stylesheet" href="https://diylifepro.github.io/styles/main.css">
-
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link href="https://cdn.remixicon.com/releases/v1.3.1/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://diylifepro.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Gridea - Atom Feed" href="https://diylifepro.github.io/atom.xml">
 
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://diylifepro.github.io">
-  <img class="avatar" src="https://diylifepro.github.io/images/avatar.png?v=1577558562873" alt="">
-  </a>
-  <h1 class="site-title">
-    Gridea
-  </h1>
-  <p class="site-description">
-    温故而知新
-  </p>
-  <div class="menu-container">
+    <div class="main px-4 flex flex-col lg:flex-row">
+      <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
+        <i class="remixicon-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://diylifepro.github.io">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://diylifepro.github.io/images/avatar.png?v=1577626390403" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">Gridea</h1>
+        <link
+  href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css"
+  rel="stylesheet"
+/>
+<div id="aplayer" class="animated fadeInLeft mx-4" style="animation-delay: 0.6s"></div>
+<script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+<script>
+function loadData(url, callback) {
+    var args = Array.prototype.slice.call(arguments, 3);
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+				json = JSON.parse(xhr.response);           	
+				//console.log(json);
+                callback.apply(json, json);
+            } else {
+                console.error(xhr.statusText);
+            }
+        }
+    };
+    xhr.open("GET", url, false);
+    xhr.send(null);
+}
+
+function getMessage (json) {
+        songname = this.data.name;
+		songurl = this.data.url;
+		songcover = this.data.picurl;
+		songartist = this.data.artistsname;
+		console.log(this.data);
+}
+
+console.log('player new');
+loadData("https://api.uomg.com/api/rand.music?sort=%E7%83%AD%E6%AD%8C%E6%A6%9C&format=json", getMessage, "New message!\n");	
+var container = document.getElementById("aplayer");
+var ap = new APlayer({
+	container: container,
+	autoplay: true,
+	fixed: true,
+	audio: [
+		{			
+		name: songname,
+		artist: songartist,
+		url: songurl,
+		cover: songcover
+		}
+	]
+});
+
+function appSongList () {
+	loadData("https://api.uomg.com/api/rand.music?sort=%E7%83%AD%E6%AD%8C%E6%A6%9C&format=json", getMessage, "New message!\n");	
+	ap.list.add([{
+		name: songname,
+		artist: songartist,
+		url: songurl,
+		cover: songcover
+	}]);
+}
+
+ap.on('play', function () {
+    console.log('player play');
+	appSongList ();
+});
+ap.on('error', function () {
+    console.log('player error');
+	appSongList ();
+});
+//ap.on('emptied', function () {
+//    console.log('player emptied');
+//	appSongList ();
+//});
+
+//ap.on('ended', function () {
+//    console.log('player ended');
+//	appSongList ();
+//});
+
+//ap.on('loadstart', function () {
+//    console.log('player loadstart');
+//	appSongList ();
+//});
+ap.on('listswitch', function () {
+    console.log('player listswitch');
+	appSongList ();
+});
+
+ap.on('noticeshow', function () {
+    console.log('player noticeshow');
+	appSongList ();
+});
+ap.on('noticehide', function () {
+    console.log('player noticehide');
+	appSongList ();
+});
+
+
+</script>
+
+
+
+      </div>
+      
+        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+          <p class="my-4 text-gray-600 font-light hidden lg:block">
+            
+          </p>
+          <div class="animated fadeInLeft social-container hidden lg:block" style="animation-delay: 0.6s">
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="remixicon-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
     
       
-        <a href="/" class="menu">
+        <a href="/" class="menu" style="animation-delay: 0s">
           首页
         </a>
       
     
       
-        <a href="/archives" class="menu">
+        <a href="/archives" class="menu" style="animation-delay: 0.2s">
           归档
         </a>
       
     
       
-        <a href="/tags" class="menu">
+        <a href="/tags" class="menu" style="animation-delay: 0.4s">
           标签
         </a>
       
     
       
-        <a href="/post/about" class="menu">
+        <a href="/post/about" class="menu" style="animation-delay: 0.6000000000000001s">
           关于
         </a>
       
     
   </div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
+  <div class="site-footer">
+    <div class="py-4 text-gray-700"></div>
+    <a class="rss" href="https://diylifepro.github.io/atom.xml" target="_blank">RSS</a>
   </div>
 </div>
+<div class="mask" onclick="closeMenu()">
+</div>
 
-    
-        <div class="post-container">
-  
-    <article class="post">
-      <a href="https://diylifepro.github.io/post/hello-gridea">
-        <h2 class="post-title">Hello Gridea</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2018-12-12
-        </span>
-        <span>
-          2 min read
-        </span>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4">
+        <h2 class="latest-article text-lg text-gray-700 mb-8">
+          <i class="remixicon-article-line"></i>
+          最新文章
+        </h2>
         
-          <a href="https://diylifepro.github.io/tag/gBllBldOK" class="post-tag">
-            # Gridea
-          </a>
-        
-      </div>
-      
-        <a href="https://diylifepro.github.io/post/hello-gridea" class="post-feature-image" style="background-image: url('https://diylifepro.github.io/post-images/hello-gridea.png')">
-        </a>
-      
-      <div class="post-abstract">
-        <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-
-      </div>
-    </article>
-  
-</div>
-
-    
-        <div class="pagination-container">
+        <div class="read-more">
+          
+        </div>
+        <div class="index-page">
+          <div class="pagination-container animated fadeIn">
   
   
 </div>
 
-    
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
-  <a class="rss" href="https://diylifepro.github.io/atom.xml" target="_blank">RSS</a>
-</div>
-
-<script>
-  hljs.initHighlightingOnLoad()
-
-  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
-
-  // This should probably be throttled.
-  // Especially because it triggers during smooth scrolling.
-  // https://lodash.com/docs/4.17.10#throttle
-  // You could do like...
-  // window.addEventListener("scroll", () => {
-  //    _.throttle(doThatStuff, 100);
-  // });
-  // Only not doing it here to keep this Pen dependency-free.
-
-  window.addEventListener("scroll", event => {
-    let fromTop = window.scrollY;
-
-    mainNavLinks.forEach((link, index) => {
-      let section = document.getElementById(decodeURI(link.hash).substring(1));
-      let nextSection = null
-      if (mainNavLinks[index + 1]) {
-        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-      }
-      if (section.offsetTop <= fromTop) {
-        if (nextSection) {
-          if (nextSection.offsetTop > fromTop) {
-            link.classList.add("current");
-          } else {
-            link.classList.remove("current");    
-          }
-        } else {
-          link.classList.add("current");
-        }
-      } else {
-        link.classList.remove("current");
-      }
-    });
-  });
-
-</script>
-
+        </div>
       </div>
     </div>
+
+    <script src="https://diylifepro.github.io/media/prism.js"></script>  
+<script>
+
+Prism.highlightAll()
+
+let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+// This should probably be throttled.
+// Especially because it triggers during smooth scrolling.
+// https://lodash.com/docs/4.17.10#throttle
+// You could do like...
+// window.addEventListener("scroll", () => {
+//    _.throttle(doThatStuff, 100);
+// });
+// Only not doing it here to keep this Pen dependency-free.
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach((link, index) => {
+    let section = document.getElementById(decodeURI(link.hash).substring(1));
+    let nextSection = null
+    if (mainNavLinks[index + 1]) {
+      nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+    }
+    if (section.offsetTop <= fromTop) {
+      if (nextSection) {
+        if (nextSection.offsetTop > fromTop) {
+          link.classList.add("current");
+        } else {
+          link.classList.remove("current");    
+        }
+      } else {
+        link.classList.add("current");
+      }
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target
+          lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+          lazyImage.classList.remove("lazy")
+          lazyImageObserver.unobserve(lazyImage)
+        }
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage)
+    })
+  } else {
+    // Possibly fall back to a more compatible method here
+  }
+});
+
+const menuContainer = document.querySelector('.menu-container')
+const menus = document.querySelectorAll('.menu-container .menu')
+const mask = document.querySelector('.mask')
+const contentWrapper = document.querySelector('.content-wrapper')
+const latestArticle = document.querySelector('.latest-article')
+const readMore = document.querySelector('.read-more')
+const indexPage = document.querySelector('.index-page')
+
+const isHome = location.pathname === '/'
+if (latestArticle) {
+  latestArticle.style.display = isHome ? 'block' : 'none'
+  readMore.style.display = isHome ? 'block' : 'none'
+  indexPage.style.display = isHome ? 'none' : 'block'
+}
+
+const openMenu = () => {
+  menuContainer.classList.add('open')
+  menus.forEach(menu => {
+    menu.classList.add('animated', 'fadeInLeft')
+  })
+  mask.classList.add('open')
+  contentWrapper.classList.add('is-second')
+}
+
+const closeMenu = () => {
+  menuContainer.classList.remove('open')
+  menus.forEach(menu => {
+    menu.classList.remove('animated', 'fadeInLeft')
+  })
+  mask.classList.remove('open')
+  contentWrapper.classList.remove('is-second')
+}
+</script>
+  
   </body>
 </html>
